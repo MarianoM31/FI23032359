@@ -1,0 +1,48 @@
+﻿@model MyProject.Models.BinaryModel
+@{
+    ViewData["Title"] = "Operaciones Binarias";
+}
+
+<h2>Operaciones Binarias y Aritméticas</h2>
+
+<form asp-action="Index" method="post">
+    <div>
+        <label for="A">a:</label>
+        <input asp-for="A" />
+        <span asp-validation-for="A" style="color:red"></span>
+    </div>
+    <div>
+        <label for="B">b:</label>
+        <input asp-for="B" />
+        <span asp-validation-for="B" style="color:red"></span>
+    </div>
+    <button type="submit">Calcular</button>
+</form>
+
+@if (ViewBag.Resultados != null)
+{
+    <h3>Resultados</h3>
+    <table class="table table-bordered table-striped w-75">
+        <thead class="table-dark">
+            <tr>
+                <th>Operación</th>
+                <th>Bin</th>
+                <th>Oct</th>
+                <th>Dec</th>
+                <th>Hex</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var r in ViewBag.Resultados)
+            {
+                <tr>
+                    <td>@r.Nombre</td>
+                    <td>@r.Bin</td>
+                    <td>@r.Oct</td>
+                    <td>@r.Dec</td>
+                    <td>@r.Hex</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
