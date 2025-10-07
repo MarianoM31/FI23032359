@@ -20,7 +20,7 @@ namespace MyProject.Controllers
                 return View(model);
             }
 
-            // Normalizar a 8 bits
+            // Normalizar operandos a 8 bits
             string aBin = model.A.PadLeft(8, '0');
             string bBin = model.B.PadLeft(8, '0');
 
@@ -29,24 +29,32 @@ namespace MyProject.Controllers
             int bDec = Convert.ToInt32(bBin, 2);
 
             // Operaciones binarias sobre strings
-            string andBin = OperacionBinaria(aBin, bBin, (x, y) => x & y);
-            string orBin  = OperacionBinaria(aBin, bBin, (x, y) => x | y);
-            string xorBin = OperacionBinaria(aBin, bBin, (x, y) => x ^ y);
+            string andBin = OperacionBinaria(aBin, bBin, (x, y) => x & y).TrimStart('0');
+            string orBin  = OperacionBinaria(aBin, bBin, (x, y) => x | y).TrimStart('0');
+            string xorBin = OperacionBinaria(aBin, bBin, (x, y) => x ^ y).TrimStart('0');
+
+            // Si quedó vacío (caso todo 0), asignar "0"
+            if (string.IsNullOrEmpty(andBin)) andBin = "0";
+            if (string.IsNullOrEmpty(orBin)) orBin = "0";
+            if (string.IsNullOrEmpty(xorBin)) xorBin = "0";
 
             // Operaciones aritméticas
             int suma = aDec + bDec;
             int mult = aDec * bDec;
 
+            string sumaBin = Convert.ToString(suma, 2); // sin padding
+            string multBin = Convert.ToString(mult, 2); // sin padding
+
             // Pasar resultados a ViewBag
             ViewBag.Resultados = new []
             {
-                new { Nombre="a",      Bin=aBin, Dec=aDec, Oct=Convert.ToString(aDec,8), Hex=Convert.ToString(aDec,16).ToUpper() },
-                new { Nombre="b",      Bin=bBin, Dec=bDec, Oct=Convert.ToString(bDec,8), Hex=Convert.ToString(bDec,16).ToUpper() },
-                new { Nombre="a AND b", Bin=andBin, Dec=Convert.ToInt32(andBin,2), Oct=Convert.ToString(Convert.ToInt32(andBin,2),8), Hex=Convert.ToString(Convert.ToInt32(andBin,2),16).ToUpper() },
-                new { Nombre="a OR b", Bin=orBin, Dec=Convert.ToInt32(orBin,2), Oct=Convert.ToString(Convert.ToInt32(orBin,2),8), Hex=Convert.ToString(Convert.ToInt32(orBin,2),16).ToUpper() },
-                new { Nombre="a XOR b", Bin=xorBin, Dec=Convert.ToInt32(xorBin,2), Oct=Convert.ToString(Convert.ToInt32(xorBin,2),8), Hex=Convert.ToString(Convert.ToInt32(xorBin,2),16).ToUpper() },
-                new { Nombre="a + b", Bin=Convert.ToString(suma,2), Dec=suma, Oct=Convert.ToString(suma,8), Hex=Convert.ToString(suma,16).ToUpper() },
-                new { Nombre="a • b", Bin=Convert.ToString(mult,2), Dec=mult, Oct=Convert.ToString(mult,8), Hex=Convert.ToString(mult,16).ToUpper() }
+                new { Nombre="a",       Bin=aBin,    Dec=aDec, Oct=Convert.ToString(aDec,8), Hex=Convert.ToString(aDec,16).ToUpper() },
+                new { Nombre="b",       Bin=bBin,    Dec=bDec, Oct=Convert.ToString(bDec,8), Hex=Convert.ToString(bDec,16).ToUpper() },
+                new { Nombre="a AND b", Bin=andBin,  Dec=Convert.ToInt32(andBin,2), Oct=Convert.ToString(Convert.ToInt32(andBin,2),8), Hex=Convert.ToString(Convert.ToInt32(andBin,2),16).ToUpper() },
+                new { Nombre="a OR b",  Bin=orBin,   Dec=Convert.ToInt32(orBin,2),  Oct=Convert.ToString(Convert.ToInt32(orBin,2),8),  Hex=Convert.ToString(Convert.ToInt32(orBin,2),16).ToUpper() },
+                new { Nombre="a XOR b", Bin=xorBin,  Dec=Convert.ToInt32(xorBin,2), Oct=Convert.ToString(Convert.ToInt32(xorBin,2),8), Hex=Convert.ToString(Convert.ToInt32(xorBin,2),16).ToUpper() },
+                new { Nombre="a + b",   Bin=sumaBin, Dec=suma, Oct=Convert.ToString(suma,8), Hex=Convert.ToString(suma,16).ToUpper() },
+                new { Nombre="a • b",   Bin=multBin, Dec=mult, Oct=Convert.ToString(mult,8), Hex=Convert.ToString(mult,16).ToUpper() }
             };
 
             return View(model);
