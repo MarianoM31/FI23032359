@@ -1,0 +1,36 @@
+# ===============================
+# .NET / Visual Studio / C#
+# ===============================
+
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# IDE folders
+.vscode/
+.vs/
+
+# Logs and temp
+*.log
+*.tmp
+*.cache
+*.pdb
+
+# Publish outputs
+publish/
+dist/
+
+# OS junk files
+Thumbs.db
+.DS_Store
+
+# Backup files
+*.bak
+*.old
+*.orig
