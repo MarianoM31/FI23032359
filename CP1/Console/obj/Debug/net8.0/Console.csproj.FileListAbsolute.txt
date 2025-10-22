@@ -1,0 +1,15 @@
+C:\repos\FI23032359\CP1\Console\obj\Debug\net8.0\Console.GeneratedMSBuildEditorConfig.editorconfig
+C:\repos\FI23032359\CP1\Console\obj\Debug\net8.0\Console.AssemblyInfoInputs.cache
+C:\repos\FI23032359\CP1\Console\obj\Debug\net8.0\Console.AssemblyInfo.cs
+C:\repos\FI23032359\CP1\Console\obj\Debug\net8.0\Console.csproj.CoreCompileInputs.cache
+C:\repos\FI23032359\CP1\Console\obj\Debug\net8.0\Console.sourcelink.json
+C:\repos\FI23032359\CP1\Console\bin\Debug\net8.0\Console.exe
+C:\repos\FI23032359\CP1\Console\bin\Debug\net8.0\Console.deps.json
+C:\repos\FI23032359\CP1\Console\bin\Debug\net8.0\Console.runtimeconfig.json
+C:\repos\FI23032359\CP1\Console\bin\Debug\net8.0\Console.dll
+C:\repos\FI23032359\CP1\Console\bin\Debug\net8.0\Console.pdb
+C:\repos\FI23032359\CP1\Console\obj\Debug\net8.0\Console.dll
+C:\repos\FI23032359\CP1\Console\obj\Debug\net8.0\refint\Console.dll
+C:\repos\FI23032359\CP1\Console\obj\Debug\net8.0\Console.pdb
+C:\repos\FI23032359\CP1\Console\obj\Debug\net8.0\Console.genruntimeconfig.cache
+C:\repos\FI23032359\CP1\Console\obj\Debug\net8.0\ref\Console.dll
