@@ -1,4 +1,4 @@
-# ===============================
+a# ===============================
 # .NET / Visual Studio / C#
 # ===============================
 
@@ -34,3 +34,23 @@ Thumbs.db
 *.bak
 *.old
 *.orig
+# ===============================
+# Exclusiones específicas PP4
+# ===============================
+
+# Archivos de datos
+*.db
+*.csv
+*.tsv
+
+# Carpeta de datos
+data/
+Data/data/
+
+# Migraciones de Entity Framework
+Migrations/
+
+# Archivos temporales o locales
+*.sqlite
+*.db-wal
+*.db-shm
